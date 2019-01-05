@@ -1,0 +1,66 @@
+
+/*reset重置样式*/
+html,body{height: 100%;overflow: hidden;}
+html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
+a{text-decoration: none;display: block;}
+li{list-style: none;}
+img{display: block;}
+
+/*清除浮动*/
+.clearfix{*zoom: 1;}
+.clearfix:after{content: "";display: block;clear: both;}
+
+/*选择器是从右向左解析的，这样效率更高
+选择器是有开销的，不同选择器的开销不同
+
+结论：选择器一般3-4个最好
+*/
+
+/*头部样式*/
+#wrap{
+    height: 100%;
+}
+.header{
+    height: 80px;
+    background:orange;
+}
+.header-main{
+    height: 80px;
+    background: skyblue;
+    width: 1100px;
+    margin: 0 auto;
+}
+.logo{
+    margin-top: 15px;
+}
+.logo,.music-icon{
+    float: left;
+}
+.music-icon{
+    margin-top: 50px;
+}
+.nav{
+    float: right;
+    margin-top: 50px;
+}
+.nav li{
+    position: relative;
+    float: left;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.nav li:hover .down{
+    width: 100%;
+}
+.nav li .up{
+    color: white;
+}
+.nav li .down{
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*隐藏方式一定要注意   ********/
+    width: 0;
+    overflow: hidden;
+    transition:width 1s;
+}
