@@ -19,14 +19,16 @@ img{display: block;}
 /*头部样式*/
 #wrap{
     height: 100%;
+    background:skyblue;
 }
 .header{
     height: 80px;
-    background:orange;
+    position: relative;
+
 }
 .header-main{
     height: 80px;
-    background: skyblue;
+    background: orangered;
     width: 1100px;
     margin: 0 auto;
 }
@@ -63,4 +65,13 @@ img{display: block;}
     width: 0;
     overflow: hidden;
     transition:width 1s;
+}
+.arrow{
+    position: absolute;
+    left: 50%;
+    bottom: -11px;
+    width: 21px;
+    height: 11px;
+    transition:left 1s;
+    background-image: url("../img/arrow.png");
 }
