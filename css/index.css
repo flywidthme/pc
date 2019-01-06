@@ -1,6 +1,6 @@
 
 /*reset重置样式*/
-html,body{height: 100%;overflow: hidden;}
+html,body{height: 100%; overflow: hidden}
 html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
 a{text-decoration: none;display: block;}
 li{list-style: none;}
@@ -18,8 +18,8 @@ img{display: block;}
 
 /*头部样式*/
 #wrap{
+    position: relative;
     height: 100%;
-    background:skyblue;
 }
 .header{
     height: 80px;
@@ -73,5 +73,38 @@ img{display: block;}
     width: 21px;
     height: 11px;
     transition:left 1s;
+    z-index: 5;
     background-image: url("../img/arrow.png");
+}
+.content{
+    position: absolute;
+    top: 80px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    background: skyblue;
+    overflow: hidden;
+}
+.content-main{
+    position: absolute;
+    left: 0;
+    top: 0;/*为了让第一次有过度效果*/
+    width: 100%;
+    height: 500%;
+    transition: top 1s;
+}
+.content-main>li{
+    position: relative;
+    height: 20%;
+    background: skyblue;
+}
+.content-main section{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -550px;
+    margin-top: -260px;
+    width: 1100px;
+    height: 520px;
+    background: pink;
 }
