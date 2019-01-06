@@ -79,6 +79,7 @@ window.onload = function(){
                 break;
         }
 
+
         //禁止默认行为
         event.preventDefault && event.preventDefault();
         return false;
