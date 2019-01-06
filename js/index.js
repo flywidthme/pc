@@ -86,4 +86,42 @@ window.onload = function(){
         event.preventDefault && event.preventDefault();
         return false;
     }
+
+    //第一屏轮播
+    firstView()
+    function firstView() {
+        var homeCarouselNodes = document.querySelectorAll('.home-carousel li');
+        var homePointNodes = document.querySelectorAll('.home-point li')
+        var lastIndex = 0;
+        var nowIndex = 0;
+        for (var i = 0; i <homePointNodes.length; i++) {
+            homePointNodes[i].index = i;
+
+            homePointNodes[i].onclick = function () {
+                //同步nowIndex的值
+                nowIndex = this.index;
+                if (nowIndex===lastIndex) return;
+                if (nowIndex>lastIndex) {
+                //点击的右边，右边加rightshow   左边加lefthide
+                    homeCarouselNodes[nowIndex].className = 'common-title rightShow'
+                    homeCarouselNodes[lastIndex].className = 'common-title leftHide'
+                }else{
+                    //点击的左边，左边加leftshow   右边加righthide
+                    homeCarouselNodes[nowIndex].className = 'common-title leftShow '
+                    homeCarouselNodes[lastIndex].className = 'common-title rightHide'
+                }
+                homePointNodes[lastIndex].className = '';
+                this.className = 'active';
+
+
+                lastIndex = nowIndex;
+
+            }
+        }
+    }
+
+    
+    
+    
+    
 }
