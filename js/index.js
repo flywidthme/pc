@@ -8,9 +8,11 @@ window.onload = function(){
     var contentNode = document.querySelector('.content');
     var contentHeight = contentNode.offsetHeight;
     var nowIndex = 0;
+    move(2);
     headerArea();
     //头部区域功能
     function headerArea(){
+
         //初始化时，小箭头默认在第一个li上
         arrowNode.style.left = headerLisNodes[0].getBoundingClientRect().left+headerLisNodes[0].offsetWidth/2
             -arrowNode.offsetWidth/2+'px';
@@ -29,6 +31,7 @@ window.onload = function(){
         }
     }
 
+    move(1);
     function move(nowIndex){
         //其他div的宽度为0
         for (var j = 0; j <headerDownNodes.length; j++) {

@@ -14,6 +14,12 @@ img{display: block;}
     letter-spacing:-5px;
 }
 
+.commonText{
+    color:white;
+    line-height:1.5;
+    font-size:15px;
+}
+
 /*清除浮动*/
 .clearfix{*zoom: 1;}
 .clearfix:after{content: "";display: block;clear: both;}
@@ -58,6 +64,9 @@ img{display: block;}
     margin-left: 40px;
     cursor: pointer;
 
+}
+.nav li:nth-child(1){
+    width: 18px;
 }
 .nav li:hover .down{
     width: 100%;
@@ -104,8 +113,23 @@ img{display: block;}
 .content-main>li{
     position: relative;
     height: 20%;
-    background: skyblue;
 }
+.content-main>li:nth-child(1){
+    background-image: url("../img/bg1.jpg");
+}
+.content-main>li:nth-child(2){
+    background-image: url("../img/bg2.jpg");
+}
+.content-main>li:nth-child(3){
+    background-image: url("../img/bg3.jpg");
+}
+.content-main>li:nth-child(4){
+    background-image: url("../img/bg4.jpg");
+}
+.content-main>li:nth-child(5){
+    background-image: url("../img/bg5.jpg");
+}
+
 .content-main section{
     position: absolute;
     top: 50%;
@@ -114,7 +138,6 @@ img{display: block;}
     margin-top: -260px;
     width: 1100px;
     height: 520px;
-    background: pink;
 }
 /*第一屏操作*/
 .home-carousel{
@@ -177,13 +200,16 @@ img{display: block;}
     animation: rightShow 2s linear;
 }
 .home-carousel .leftShow{
-    visibility: hidden;
+    visibility: visible;
     animation: leftShow 2s linear;
 }
 .home-carousel .rightHide{
-    visibility: visible;
+    visibility: hidden;
     animation: rightHide 2s linear;
 }
+/*第二屏*/
+.commonText{ color:white; line-height:1.5; font-size:15px;}
+
 
 
 
@@ -208,4 +234,67 @@ img{display: block;}
     50%{transform: translateX(40%) rotateY(-30deg) scale(0.8)}
     100%{visibility:hidden;transform: translateZ(-200px);}
 }
+
+/*第二屏样式*/
+.course-title{
+    margin: 50px;
+}
+.course-content{
+    width: 400px;
+    margin-left: 50px;
+}
+.course-lists{
+    width: 480px;
+    position: absolute;
+    right: 50px;
+    top: 70px;
+}
+.course-lists li{
+    position: relative;
+    float: left;
+    width: 120px;
+    height: 132px;
+}
+.course-lists .back{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    
+    background: #009ee0;
+    padding: 15px;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+    transition: transform 1s;
+    backface-visibility: hidden;
+}
+.course-lists .front{
+    height: 100%;
+    background-image: url(../img/pcwelt.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 1s;
+}
+.course-lists li:hover .front{
+    transform: rotateY(180deg);
+}
+.course-lists li:hover .back{
+    transform: rotateY(360deg);
+}
+.course-line li{
+    position: absolute;
+    top: -5px;
+    width: 9px;
+    height: 410px;
+    background-image: url("../img/plus_row.png");
+    background-repeat: no-repeat;
+    
+}
+.course-line li:nth-child(1){left: -6px;}
+.course-line li:nth-child(2){left: 114px;}
+.course-line li:nth-child(3){left: 234px;}
+.course-line li:nth-child(4){left: 354px;}
+.course-line li:nth-child(5){left: 474px;}
+
+
 
