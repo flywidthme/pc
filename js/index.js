@@ -7,8 +7,10 @@ window.onload = function(){
     var contentUlNode = document.querySelector('.content-main');
     var contentNode = document.querySelector('.content');
     var contentHeight = contentNode.offsetHeight;
+    var timer = null;
     var nowIndex = 0;
-    move(2);
+
+
     headerArea();
     //头部区域功能
     function headerArea(){
@@ -31,7 +33,7 @@ window.onload = function(){
         }
     }
 
-    move(1);
+    move(nowIndex);
     function move(nowIndex){
         //其他div的宽度为0
         for (var j = 0; j <headerDownNodes.length; j++) {
@@ -65,14 +67,12 @@ window.onload = function(){
                 flag = 'down'
             }
         }
-
         switch (flag) {
             case 'up' :
                 if (nowIndex>0) {
                     nowIndex--;
                     move(nowIndex);
                 }
-
                 break;
             case 'down' :
                 if (nowIndex<4) {
@@ -81,10 +81,6 @@ window.onload = function(){
                 }
                 break;
         }
-
-
-
-
         //禁止默认行为
         event.preventDefault && event.preventDefault();
         return false;
@@ -97,12 +93,20 @@ window.onload = function(){
         var homePointNodes = document.querySelectorAll('.home-point li')
         var lastIndex = 0;
         var nowIndex = 0;
+        var lastTime = 0;
         for (var i = 0; i <homePointNodes.length; i++) {
             homePointNodes[i].index = i;
 
             homePointNodes[i].onclick = function () {
+              //函数节流：规定时间内，只让第一次执行
+              //如果点击的时间间隔小于2s，点击事件不执行
+              var nowTime = Data.now();
+              if (nowTime-lastTime<=2000) return;
+                //同步上一次点击时间
+                lastTime = nowTime;
                 //同步nowIndex的值
                 nowIndex = this.index;
+                //如果点击同一个，则不会有任何移动
                 if (nowIndex===lastIndex) return;
                 if (nowIndex>lastIndex) {
                 //点击的右边，右边加rightshow   左边加lefthide
@@ -121,6 +125,23 @@ window.onload = function(){
 
             }
         }
+    //    自动轮播
+      nowIndex++;
+        setInterval(function(){
+
+          if (nowIndex>=4) {
+              nowIndex=0;
+          }
+          //点击的右边，右边加rightshow   左边加lefthide
+          homeCarouselNodes[nowIndex].className = 'common-title rightShow'
+          homeCarouselNodes[lastIndex].className = 'common-title leftHide'
+
+          homePointNodes[lastIndex].className = '';
+          homePointNodes[nowIndex].className = 'active';
+
+          lastIndex = nowIndex;
+
+        },2500)
     }
 
     
